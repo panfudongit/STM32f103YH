@@ -7,4 +7,6 @@
 #define BUFFER_SIZE 32
 
 void DMA_Memory_t_Sram(void);
+void TEST_DMA1_C4_Usart1(void);
+
 #endif
