@@ -8,5 +8,5 @@
 
 void USART1_SendByte(USART_TypeDef* USARTx, uint8_t ch);
 void USART_Config(void);
-
+void TEST_DMA1_C4_Usart1(void);
 #endif /*__USART_API_H*/
