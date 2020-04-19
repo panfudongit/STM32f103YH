@@ -13,6 +13,8 @@ int main(void)
 	EXTI_Key_Config();
 	
 	USART_Config();
+
+	printf("Start the main thread ...\n",);
 	while(1)
 	{
 		digitalToggle(GPIOB,GPIO_Pin_0);

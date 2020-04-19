@@ -52,3 +52,20 @@ void USART1_SendByte(USART_TypeDef* USARTx, uint8_t ch)
 	while (USART_GetFlagStatus(USARTx, USART_FLAG_TXE) == RESET);
 }
 
+///重定向C库函数printf到串口，重定向后可使用printf函数
+int fputc(int ch, FILE *f)
+{
+		USART_SendData(USART1, (uint8_t) ch);
+
+		while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+
+		return (ch);
+}
+
+///重定向C库函数scanf到串口，重定向后可使用scanf、getch等函数
+int fgetc(FILE *f)
+{
+		while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
+
+		return (int)USART_ReceiveData(USART1);
+}
