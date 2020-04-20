@@ -5,7 +5,12 @@
 #include "exti_api.h"
 #include "systick_api.h"
 #include "usart_api.h"
+#include "rcc_api.h"
 
+void Delay(__IO uint32_t nCount)
+{
+	 for(; nCount != 0; nCount--);
+}
 int main(void)
 {
 	LED_GPIO_Config();
@@ -14,7 +19,7 @@ int main(void)
 	
 	USART_Config();
 
-	printf("Start the main thread ...\n",);
+	printf("Start the main thread ...\n");
 	while(1)
 	{
 		digitalToggle(GPIOB,GPIO_Pin_0);
